@@ -1,0 +1,30 @@
+[
+    {
+        "name": "John Smith",
+        "img": "https://i.ibb.co/9vVRxhh/user2.jpg",
+        "id": 1,
+        "rating": 4.5,
+        "details": "I thoroughly enjoyed the course! The content was well-organized, and the instructor provided clear explanations. The practical exercises were helpful, and I feel more confident in applying what I learned to real-world scenarios."
+    },
+    {
+        "name": "Emily Davis",
+        "img": "https://i.ibb.co/XsH6L0D/women1.jpg",
+        "id": 4,
+        "rating": 4.8,
+        "details": "Fantastic course! The instructor's passion for the subject was evident, and it made the learning experience enjoyable. The course structure was well-balanced, offering a mix of theory and practical examples. I feel more confident in my skills after completing this course."
+    },
+    {
+        "name": "Alice Johnson",
+        "img": "https://i.ibb.co/vPxyh2h/man.jpg",
+        "id": 2,
+        "rating": 5.0,
+        "details": "This course exceeded my expectations! The instructor's expertise and engaging teaching style made complex topics easy to understand. The course materials were comprehensive, and I appreciate the hands-on projects that reinforced the concepts. Highly recommended!"
+    },
+    {
+        "name": "David Williams",
+        "img": "https://i.ibb.co/tZgTbW3/user1.jpg",
+        "id": 3,
+        "rating": 4.0,
+        "details": "The course content was valuable, and I learned a lot. However, the pacing felt a bit fast at times. The instructor was knowledgeable, but I would have appreciated more in-depth explanations on certain topics. Overall, it was a positive learning experience."
+    }
+]
