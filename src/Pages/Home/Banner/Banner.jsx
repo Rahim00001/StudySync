@@ -6,7 +6,7 @@ import banner4 from '../../../assets/banner/banner04.jpg'
 import banner5 from '../../../assets/banner/banner05.jpg'
 const Banner = () => {
     return (
-        <div className="h-screen">
+        <div className=" lg:h-screen">
             <Carousel>
                 <div className="relative w-full bg-black">
                     <img src={banner1} className="w-full" />
