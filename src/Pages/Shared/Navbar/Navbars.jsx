@@ -2,7 +2,7 @@ import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
 const Navbars = () => {
     return (
-        <Navbar fluid rounded>
+        <Navbar className='fixed z-20 w-full bg-opacity-30 bg-black text-white'>
             <Navbar.Brand href="/">
                 <div className='flex flex-col items-center'>
                     <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Study<span className='text-yellow-400'>Sync</span></span>
@@ -29,23 +29,22 @@ const Navbars = () => {
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
-            <Navbar.Collapse className='text-4xl'>
+            <Navbar.Collapse>
                 <Navbar.Link>
-                    <NavLink to='/'>Home</NavLink>
+                    <NavLink className="text-white" to='/'>Home</NavLink>
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <NavLink to='/contact'>Contact</NavLink>
+                    <NavLink className="text-white" to='/contact'>Contact</NavLink>
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <NavLink to='/dashbord'>Dashbord</NavLink>
+                    <NavLink className="text-white" to='/dashbord'>Dashbord</NavLink>
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <NavLink to='/about'>About Us</NavLink>
+                    <NavLink className="text-white" to='/about'>About Us</NavLink>
                 </Navbar.Link>
-
             </Navbar.Collapse>
         </Navbar>
     );
