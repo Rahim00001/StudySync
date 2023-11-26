@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "img": "https://i.ibb.co/QQKLS65/dataS.jpg",
+        "title": "Data Science 101",
+        "teacher": "Faisal Rahman",
+        "price": 199.99,
+        "total_student": 150,
+        "total_class": 30
+    },
+    {
+        "id": 2,
+        "img": "https://i.ibb.co/0M8vFYN/ui-ux.webp",
+        "title": "Advanced UI/UX design",
+        "teacher": "Awlad Hossain",
+        "price": 149.99,
+        "total_student": 120,
+        "total_class": 25
+    },
+    {
+        "id": 3,
+        "img": "https://i.ibb.co/kQb4ys2/web.jpg",
+        "title": "Introduction to Web Development",
+        "teacher": "Jhankar Mahbub",
+        "price": 179.99,
+        "total_student": 100,
+        "total_class": 20
+    },
+    {
+        "id": 4,
+        "img": "https://i.ibb.co/GkZK6Fs/dm.webp",
+        "title": "Digital Marketing Strategies",
+        "teacher": "Shabaj Khan ",
+        "price": 129.99,
+        "total_student": 80,
+        "total_class": 15
+    },
+    {
+        "id": 5,
+        "img": "https://i.ibb.co/Q94vtLb/vEditing.jpg",
+        "title": "Video Editing",
+        "teacher": "Shah Riar",
+        "price": 189.99,
+        "total_student": 110,
+        "total_class": 22
+    },
+    {
+        "id": 6,
+        "img": "https://i.ibb.co/Bcdzs2X/Ai.jpg",
+        "title": "Artificial Intelligence Applications",
+        "teacher": "Gias Uddin",
+        "price": 219.99,
+        "total_student": 90,
+        "total_class": 18
+    }
+]
