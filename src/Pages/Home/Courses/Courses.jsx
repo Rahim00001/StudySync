@@ -5,7 +5,7 @@ import CourseCard from "./CourseCard";
 const Courses = () => {
     const [course, setCourse] = useState([]);
     useEffect(() => {
-        fetch('course.json')
+        fetch('http://localhost:5000/courses')
             .then(res => res.json())
             .then(data => setCourse(data))
     }, [])
