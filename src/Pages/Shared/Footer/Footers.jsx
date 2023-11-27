@@ -3,7 +3,7 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-
 const Footers = () => {
     return (
         <Footer container>
-            <div className="w-full">
+            <div className="w-full max-w-screen-xl mx-auto">
                 <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
                     <div>
                         <img className='w-44 cursor-pointer' src="https://i.ibb.co/72Pwqvd/1.png" alt="StudySync Logo" />
