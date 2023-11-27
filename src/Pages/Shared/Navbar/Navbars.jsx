@@ -45,6 +45,9 @@ const Navbars = () => {
                 <Navbar.Link>
                     <NavLink className="text-white" to='/about'>About Us</NavLink>
                 </Navbar.Link>
+                <Navbar.Link>
+                    <NavLink className="text-white" to='/login'>Login</NavLink>
+                </Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     );
