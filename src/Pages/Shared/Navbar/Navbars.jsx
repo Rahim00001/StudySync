@@ -5,6 +5,7 @@ import { useContext } from 'react';
 import Swal from 'sweetalert2';
 const Navbars = () => {
     const { user, logOutUser } = useContext(AuthContext);
+    console.log(user);
     const handleLogOut = () => {
         logOutUser()
             .then(() => {
@@ -35,12 +36,12 @@ const Navbars = () => {
                     }
                 >
                     <Dropdown.Header>
-                        <span className="block text-sm">Bonnie Green</span>
-                        <span className="block truncate text-sm font-medium">name@flowbite.com</span>
+                        <span className="block text-sm text-center">{user?.displayName}</span>
+                        <span className="block truncate text-sm font-medium">{user?.email}</span>
                     </Dropdown.Header>
                     <Dropdown.Item>Dashboard</Dropdown.Item>
-                    <Dropdown.Item>Settings</Dropdown.Item>
-                    <Dropdown.Item>Earnings</Dropdown.Item>
+                    {/* <Dropdown.Item>Settings</Dropdown.Item>
+                    <Dropdown.Item>Earnings</Dropdown.Item> */}
                     <Dropdown.Divider />
                     <Dropdown.Item>Sign out</Dropdown.Item>
                 </Dropdown>
