@@ -27,7 +27,7 @@ const SocialLogin = () => {
     return (
         <div>
             <div className="px-8 mb-2 -mt-4">
-                <Button outline gradientDuoTone="purpleToBlue" onClick={handleGooglelogin}>
+                <Button outline gradientDuoTone="purpleToBlue" onClick={handleGooglelogin} disabled>
                     <FaGoogle className="text-xl text-yellow-300 mr-2"></FaGoogle>
                     Google Login
                 </Button>

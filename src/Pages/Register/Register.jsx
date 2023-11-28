@@ -83,7 +83,6 @@ const Register = () => {
                         <Select id="role" name="role" {...register("role", { required: true })} >
                             <option>Employee</option>
                             <option>HR</option>
-                            <option>Admin</option>
                         </Select>
                         {errors.role && <span className="text-red-600">Role is required</span>}
                     </div>
@@ -138,7 +137,7 @@ const Register = () => {
                             <p className="text-red-600">Password must have one upperCase, one LowerCase, one Number and one Special characters</p>
                         )}
                     </div>
-                    <Button type="submit">Register</Button>
+                    <Button type="submit" >Register</Button>
                 </form>
                 <SocialLogin></SocialLogin>
                 <p className="text-center my-4 text-gray-600">Already have an account ? <Link to='/login' className="text-[#117cff] font-bold hover:underline">Login</Link></p>
