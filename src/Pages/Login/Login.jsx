@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet-async';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 const Login = () => {
     const { signInUser } = useContext(AuthContext);
 
@@ -16,6 +17,13 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Login SuccessFully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
     }
 

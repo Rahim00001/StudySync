@@ -2,11 +2,20 @@ import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { useContext } from 'react';
+import Swal from 'sweetalert2';
 const Navbars = () => {
     const { user, logOutUser } = useContext(AuthContext);
     const handleLogOut = () => {
         logOutUser()
-            .then(() => { })
+            .then(() => {
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logout SuccessFully",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            })
             .catch(error => console.log(error))
     }
     return (
