@@ -9,6 +9,8 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import AboutUs from "../Pages/AboutUs/AboutUs";
+import DashBoard from "../Layout/DashBoard";
+import AllEmployee from "../Pages/Dashboard.jsx/AllEmployee/AllEmployee";
 
 
 export const router = createBrowserRouter([
@@ -39,4 +41,15 @@ export const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: 'dashboard',
+        element: <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
+        children: [
+            {
+                path: 'employee',
+                element: <AllEmployee></AllEmployee>
+            },
+
+        ]
+    }
 ]);

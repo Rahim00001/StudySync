@@ -32,7 +32,8 @@ const Register = () => {
                             email: data.email,
                             role: data.role,
                             salary: data.salary,
-                            account: data.account
+                            account: data.account,
+                            verified: false
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
