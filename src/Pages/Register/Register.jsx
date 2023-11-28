@@ -77,8 +77,22 @@ const Register = () => {
                         <div className="mb-2 block">
                             <Label htmlFor="account" value="Your bank account number" />
                         </div>
-                        <TextInput id="account" type="text" {...register("account", { required: true })} name='account' placeholder="bank account number" shadow />
+                        <TextInput id="account" type="number" {...register("account", { required: true })} name='account' placeholder="bank account number" shadow />
                         {errors.account && <span className="text-red-600">Account number is required</span>}
+                    </div>
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="salary" value="Your salary" />
+                        </div>
+                        <TextInput id="salary" type="number" {...register("salary", { required: true })} name='salary' placeholder="Your salary" shadow />
+                        {errors.salary && <span className="text-red-600">Your Salary Amount is required</span>}
+                    </div>
+                    <div>
+                        <div className="mb-2 block">
+                            <Label htmlFor="designation" value="Your designation" />
+                        </div>
+                        <TextInput id="designation" type="text" {...register("designation", { required: true })} name='designation' placeholder="designation" shadow />
+                        {errors.designation && <span className="text-red-600">designation is required</span>}
                     </div>
                     <div>
                         <div className="mb-2 block">
