@@ -1,6 +1,14 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
+import { useContext } from 'react';
 const Navbars = () => {
+    const { user, logOutUser } = useContext(AuthContext);
+    const handleLogOut = () => {
+        logOutUser()
+            .then(() => { })
+            .catch(error => console.log(error))
+    }
     return (
         <Navbar className='fixed z-20 w-full bg-opacity-30 bg-black text-white'>
             <Navbar.Brand href="/">
@@ -14,7 +22,7 @@ const Navbars = () => {
                     arrowIcon={false}
                     inline
                     label={
-                        <Avatar alt="User settings" img="https://i.ibb.co/9vVRxhh/user2.jpg" rounded />
+                        <Avatar alt="User settings" img={user?.photoURL} rounded />
                     }
                 >
                     <Dropdown.Header>
@@ -45,9 +53,14 @@ const Navbars = () => {
                 <Navbar.Link>
                     <NavLink className="text-white" to='/about'>About Us</NavLink>
                 </Navbar.Link>
-                <Navbar.Link>
-                    <NavLink className="text-white" to='/login'>Login</NavLink>
-                </Navbar.Link>
+                {
+                    user ? <>
+                        <button onClick={handleLogOut} className="btn btn-primary">Logout</button>
+                    </> :
+                        <Navbar.Link>
+                            <NavLink className="text-white" to='/login'>Login</NavLink>
+                        </Navbar.Link>
+                }
             </Navbar.Collapse>
         </Navbar>
     );

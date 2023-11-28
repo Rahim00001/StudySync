@@ -1,6 +1,10 @@
 import { Button, Label, TextInput } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
+import { AuthContext } from '../../providers/AuthProvider';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
 const Login = () => {
+    const { signInUser } = useContext(AuthContext);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -8,6 +12,11 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+        signInUser(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
     }
 
     return (
@@ -34,6 +43,7 @@ const Login = () => {
                         <Button type="submit">Login</Button>
                         <input type="submit" value='login' />
                     </form>
+                    <p className="text-center my-4 text-gray-600">New to StayZen ? <Link to='/register' className="text-[#117cff] font-bold hover:underline">Register</Link></p>
                 </div>
             </div>
         </div>
