@@ -4,6 +4,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import SocialLogin from '../../Components/SectionTitle/SocialLogin/SocialLogin';
 const Login = () => {
     const { signInUser } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ const Login = () => {
                 </Helmet>
                 <div className="flex flex-col w-full items-center justify-center min-h-[500px] px-3">
                     <h2 className='mt-24 mb-8 text-4xl font-bold '>Please login</h2>
-                    <form onSubmit={handleLogin} className="flex max-w-md w-full flex-col gap-4">
+                    <form onSubmit={handleLogin} className="flex max-w-md w-full flex-col gap-4 mb-8">
                         <div>
                             <div className="mb-2 block">
                                 <Label htmlFor="email2" value="Your email" />
@@ -56,6 +57,7 @@ const Login = () => {
                         </div>
                         <Button type="submit">Login</Button>
                     </form>
+                    <SocialLogin></SocialLogin>
                     <p className="text-center my-4 text-gray-600">New to StayZen ? <Link to='/register' className="text-[#117cff] font-bold hover:underline">Register</Link></p>
                 </div>
             </div>

@@ -1,10 +1,11 @@
 import { Button, Label, Select, TextInput } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../Components/SectionTitle/SocialLogin/SocialLogin";
 
 const Register = () => {
     const {
@@ -14,7 +15,7 @@ const Register = () => {
         formState: { errors },
     } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
         console.log(data)
@@ -33,6 +34,7 @@ const Register = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
+                        navigate('/')
                     })
                     .catch(error => console.log(error))
             })
@@ -45,7 +47,7 @@ const Register = () => {
             </Helmet>
             <div className="flex flex-col w-full items-center justify-center min-h-[500px] px-3">
                 <h2 className='mt-24 mb-8 text-4xl font-bold '>Please Register</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-md w-full flex-col gap-4">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex max-w-md w-full flex-col gap-4 mb-8">
                     <div>
                         <div className="mb-2 block">
                             <Label htmlFor="name" value="Your Name" />
@@ -110,6 +112,7 @@ const Register = () => {
                     </div>
                     <Button type="submit">Register</Button>
                 </form>
+                <SocialLogin></SocialLogin>
                 <p className="text-center my-4 text-gray-600">Already have an account ? <Link to='/login' className="text-[#117cff] font-bold hover:underline">Login</Link></p>
             </div>
         </div>
