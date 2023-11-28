@@ -7,6 +7,8 @@ import ContactUs from "../Pages/ContactUs/ContactUs";
 import ErrorPage from "../Pages/Error/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import Secret from "../Pages/Secret/Secret";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 export const router = createBrowserRouter([
@@ -35,6 +37,10 @@ export const router = createBrowserRouter([
                 path: '/register',
                 element: <Register></Register>
             },
+            {
+                path: '/secret',
+                element: <PrivateRoutes><Secret></Secret></PrivateRoutes>
+            }
         ]
     },
 ]);

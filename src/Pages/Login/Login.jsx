@@ -49,7 +49,6 @@ const Login = () => {
                             <TextInput id="password2" type="password" name='password' placeholder='Your Password' required shadow />
                         </div>
                         <Button type="submit">Login</Button>
-                        <input type="submit" value='login' />
                     </form>
                     <p className="text-center my-4 text-gray-600">New to StayZen ? <Link to='/register' className="text-[#117cff] font-bold hover:underline">Register</Link></p>
                 </div>
