@@ -46,6 +46,26 @@ const AllEmployee = () => {
         });
     }
 
+    const handlePay = user => {
+        Swal.fire({
+            title: "Want To Pay?",
+            text: `Salary of ${user.name} is ${user.salary} Taka.`,
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Pay!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire({
+                    title: "Payment Done!",
+                    text: `Payment Successfull of ${user.name}`,
+                    icon: "success"
+                });
+            }
+        });
+    }
+
     return (
         <div>
             <div className="flex justify-evenly my-4">
@@ -75,7 +95,9 @@ const AllEmployee = () => {
                                 <Table.Cell>${user.salary}</Table.Cell>
                                 <Table.Cell>
                                     <div className="flex gap-1">
-                                        <Button size="xs">Pay</Button>
+                                        {
+                                            user.verified == true ? <Button onClick={() => handlePay(user)} size="xs">Pay</Button> : <Button size="xs" disabled>Pay</Button>
+                                        }
                                         <Link to={`/detiles/${user._id}`}><Button size="xs">Detiles</Button></Link>
                                     </div>
                                 </Table.Cell>

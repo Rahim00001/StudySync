@@ -8,10 +8,10 @@ const UserDetiles = () => {
     return (
         <div>
             <div>
-                <h2 className="text-center text-3xl md:text-6xl font-medium">Employee Detiles</h2>
+                <h2 className="text-center text-4xl md:text-6xl font-medium pt-20">Employee Detiles</h2>
             </div>
             <div className="flex justify-center">
-                <Card className="max-w-sm md:w-[500px] my-20" imgSrc={photo} horizontal>
+                <Card className="max-w-sm md:w-[500px] md:h-72 my-12" imgSrc={photo} horizontal>
                     <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
                         {name}
                     </h5>
