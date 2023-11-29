@@ -21,7 +21,7 @@ const AllEmployee = () => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
-            icon: "warning",
+            icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
@@ -50,7 +50,8 @@ const AllEmployee = () => {
         Swal.fire({
             title: "Want To Pay?",
             text: `Salary of ${user.name} is ${user.salary} Taka.`,
-            icon: "warning",
+            input: "month",
+            icon: "question",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",

@@ -1,4 +1,4 @@
-import { Button, Label, Select, TextInput } from "flowbite-react";
+import { Button, FileInput, Label, Select, TextInput } from "flowbite-react";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
@@ -7,6 +7,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SectionTitle/SocialLogin/SocialLogin";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
+import axios from "axios";
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const Register = () => {
     const axiosPublic = useAxiosPublic();
@@ -19,42 +23,91 @@ const Register = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
+    const onSubmit = async (data) => {
         console.log(data)
-        createUser(data.email, data.password)
-            .then(result => {
-                const loggedUser = result.user;
-                console.log(loggedUser);
-                updateUserProfile(data.name, data.photoURL)
-                    .then(() => {
-                        const userInfo = {
-                            name: data.name,
-                            email: data.email,
-                            role: data.role,
-                            salary: data.salary,
-                            account: data.account,
-                            verified: false,
-                            photo: data.photo,
-                            designation: data.designation
-                        }
-                        axiosPublic.post('/users', userInfo)
-                            .then(res => {
-                                if (res.data.insertedId) {
-                                    console.log('user added to database');
-                                    reset();
-                                    Swal.fire({
-                                        position: "top-end",
-                                        icon: "success",
-                                        title: "Registration SuccessFully",
-                                        showConfirmButton: false,
-                                        timer: 1500
-                                    });
-                                    navigate('/')
-                                }
-                            })
-                    })
-                    .catch(error => console.log(error))
+        // upload image
+        const formData = new FormData();
+        formData.append('image', data.photo[0])
+        fetch(image_hosting_api, {
+            method: 'POST',
+            body: formData
+        })
+            .then(res => res.json())
+            .then((res) => {
+                if (res.success) {
+                    createUser(data.email, data.password)
+                        .then(result => {
+                            const loggedUser = result.user;
+                            console.log(loggedUser);
+                            updateUserProfile(data.name, data.photoURL)
+                                .then(() => {
+                                    const userInfo = {
+                                        name: data.name,
+                                        email: data.email,
+                                        role: data.role,
+                                        salary: data.salary,
+                                        account: data.account,
+                                        verified: false,
+                                        photo: res.data.display_url,
+                                        designation: data.designation
+                                    }
+                                    axiosPublic.post('/users', userInfo)
+                                        .then(res => {
+                                            if (res.data.insertedId) {
+                                                console.log('user added to database');
+                                                reset();
+                                                Swal.fire({
+                                                    position: "top-end",
+                                                    icon: "success",
+                                                    title: "Registration SuccessFully",
+                                                    showConfirmButton: false,
+                                                    timer: 1500
+                                                });
+                                                navigate('/')
+                                            }
+                                        })
+                                })
+                                .catch(error => console.log(error))
+                        })
+                }
+                console.log(res)
             })
+
+
+        // createUser(data.email, data.password)
+        //     .then(result => {
+        //         const loggedUser = result.user;
+        //         console.log(loggedUser);
+        //         updateUserProfile(data.name, data.photoURL)
+        //             .then(() => {
+        //                 const userInfo = {
+        //                     name: data.name,
+        //                     email: data.email,
+        //                     role: data.role,
+        //                     salary: data.salary,
+        //                     account: data.account,
+        //                     verified: false,
+        //                     photo: data.photo,
+        //                     designation: data.designation
+        //                 }
+        //                 axiosPublic.post('/users', userInfo)
+        //                     .then(res => {
+        //                         if (res.data.insertedId) {
+        //                             console.log('user added to database');
+        //                             reset();
+        //                             Swal.fire({
+        //                                 position: "top-end",
+        //                                 icon: "success",
+        //                                 title: "Registration SuccessFully",
+        //                                 showConfirmButton: false,
+        //                                 timer: 1500
+        //                             });
+        //                             navigate('/')
+        //                         }
+        //                     })
+        //             })
+        //             .catch(error => console.log(error))
+        //     })
     }
 
     return (
@@ -86,6 +139,7 @@ const Register = () => {
                         <Select id="role" name="role" {...register("role", { required: true })} >
                             <option>Employee</option>
                             <option>HR</option>
+                            <option>Admin</option>
                         </Select>
                         {errors.role && <span className="text-red-600">Role is required</span>}
                     </div>
@@ -114,7 +168,8 @@ const Register = () => {
                         <div className="mb-2 block">
                             <Label htmlFor="photo" value="Your Photo" />
                         </div>
-                        <TextInput id="photo" type="text" {...register("photo", { required: true })} name='photo' placeholder="Photo URL" shadow />
+                        <FileInput id="photo" {...register("photo", { required: true })} name='photo' />
+                        {/* <TextInput id="photo" type="file" {...register("photo", { required: true })} name='photo' placeholder="Photo URL" shadow /> */}
                         {errors.photo && <span className="text-red-600">Photo URL is required</span>}
                     </div>
                     <div>
