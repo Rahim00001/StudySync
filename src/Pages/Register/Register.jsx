@@ -7,7 +7,6 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../Components/SectionTitle/SocialLogin/SocialLogin";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import axios from "axios";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
@@ -139,7 +138,6 @@ const Register = () => {
                         <Select id="role" name="role" {...register("role", { required: true })} >
                             <option>Employee</option>
                             <option>HR</option>
-                            <option>Admin</option>
                         </Select>
                         {errors.role && <span className="text-red-600">Role is required</span>}
                     </div>
