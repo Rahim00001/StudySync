@@ -4,6 +4,7 @@ import { Button, Table } from "flowbite-react";
 import Swal from "sweetalert2";
 import { FaX } from "react-icons/fa6";
 import { FaCheck } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AllEmployee = () => {
     const axiosSecure = useAxiosSecure();
@@ -17,20 +18,32 @@ const AllEmployee = () => {
     console.log(users);
 
     const handleMakeVerified = user => {
-        axiosSecure.patch(`/users/hr/${user._id}`)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.modifiedCount > 0) {
-                    refetch();
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `${user.name} is an verified now!!`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }
-            })
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, varify"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosSecure.patch(`/users/hr/${user._id}`)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.modifiedCount > 0) {
+                            refetch();
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: `${user.name} is verified now!!`,
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        }
+                    })
+            }
+        });
     }
 
     return (
@@ -63,7 +76,7 @@ const AllEmployee = () => {
                                 <Table.Cell>
                                     <div className="flex gap-1">
                                         <Button size="xs">Pay</Button>
-                                        <Button size="xs">Detiles</Button>
+                                        <Link to={`/detiles/${user._id}`}><Button size="xs">Detiles</Button></Link>
                                     </div>
                                 </Table.Cell>
                                 <Table.Cell>

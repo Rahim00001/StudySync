@@ -11,6 +11,7 @@ import PrivateRoutes from "./PrivateRoutes";
 import AboutUs from "../Pages/AboutUs/AboutUs";
 import DashBoard from "../Layout/DashBoard";
 import AllEmployee from "../Pages/Dashboard.jsx/AllEmployee/AllEmployee";
+import UserDetiles from "../Pages/UserDetiles/UserDetiles";
 
 
 export const router = createBrowserRouter([
@@ -37,7 +38,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/register',
-                element: <Register></Register>
+                element: <Register></Register>,
+            },
+            {
+                path: '/detiles/:id',
+                element: <PrivateRoutes><UserDetiles></UserDetiles></PrivateRoutes>,
+                loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
             }
         ]
     },
@@ -49,6 +55,7 @@ export const router = createBrowserRouter([
                 path: 'employee',
                 element: <AllEmployee></AllEmployee>
             },
+
 
         ]
     }

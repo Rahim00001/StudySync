@@ -1,8 +1,9 @@
-import { Avatar, Dropdown, Navbar } from 'flowbite-react';
+import { Avatar, Button, Dropdown, Navbar } from 'flowbite-react';
 import { NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 import { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { FaArrowRight } from 'react-icons/fa6';
 const Navbars = () => {
     const { user, logOutUser } = useContext(AuthContext);
     console.log(user);
@@ -39,11 +40,20 @@ const Navbars = () => {
                         <span className="block text-sm text-center">{user?.displayName}</span>
                         <span className="block truncate text-sm font-medium">{user?.email}</span>
                     </Dropdown.Header>
-                    <Dropdown.Item>Dashboard</Dropdown.Item>
-                    {/* <Dropdown.Item>Settings</Dropdown.Item>
-                    <Dropdown.Item>Earnings</Dropdown.Item> */}
                     <Dropdown.Divider />
-                    <Dropdown.Item>Sign out</Dropdown.Item>
+                    <Dropdown.Item>
+                        {
+                            user ? <>
+                                <Button onClick={handleLogOut}>
+                                    Logout
+                                    <FaArrowRight className="ml-2 h-5 w-5" />
+                                </Button>
+                            </> :
+                                <Navbar.Link>
+                                    <NavLink to='/login'><Button gradientDuoTone="purpleToBlue">Login</Button></NavLink>
+                                </Navbar.Link>
+                        }
+                    </Dropdown.Item>
                 </Dropdown>
                 <Navbar.Toggle />
             </div>
