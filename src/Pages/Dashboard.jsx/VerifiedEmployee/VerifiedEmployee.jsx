@@ -98,7 +98,7 @@ const VerifiedEmployee = () => {
                                 <Table.Cell>
                                     <div className="flex gap-1">
                                         {
-                                            user.role == 'Employee' ? <Button onClick={() => handleMakeHR(user)} size="sm" >Make Hr</Button> : <Button size="sm" disabled>Make Hr</Button>
+                                            user.role == 'Employee' ? <Button onClick={() => handleMakeHR(user)} size="sm" >Make Hr</Button> : <></>
                                         }
                                         {/* <Link to={`/detiles/${user._id}`}><Button size="xs">Detiles</Button></Link> */}
                                     </div>

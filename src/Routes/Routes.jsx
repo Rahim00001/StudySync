@@ -54,22 +54,26 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
         children: [
+            // HR routes
             {
                 path: 'employee',
                 element: <AllEmployee></AllEmployee>
             },
             {
+                path: 'progress',
+                element: <Progress></Progress>
+            },
+            // Admin routes
+            {
                 path: 'verified',
                 element: <VerifiedEmployee></VerifiedEmployee>
             },
+            // Employee routes
             {
                 path: 'worksheet',
                 element: <Worksheet></Worksheet>
             },
-            {
-                path: 'progress',
-                element: <Progress></Progress>
-            }
+
 
 
         ]
