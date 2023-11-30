@@ -1,6 +1,14 @@
 import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 import { Helmet } from 'react-helmet-async';
+import Swal from 'sweetalert2';
 const ContactUs = () => {
+    const handleSubmit = () => {
+        Swal.fire({
+            title: "Message Sent?",
+            text: "Thanks for masseging us",
+            icon: "success"
+        });
+    }
     return (
         <div>
             <Helmet>
@@ -18,27 +26,27 @@ const ContactUs = () => {
                     referrerPolicy="no-referrer-when-downgrade"></iframe>
             </div>
             <div className="flex flex-col w-full items-center justify-center min-h-[500px] px-3">
-                <h1 className='mt-24 mb-8 text-4xl font-bold '>Contact With Us</h1>
-                <form className="flex max-w-md w-full flex-col gap-4 mb-8">
+                <h1 className='mt-24 mb-5 text-4xl font-bold '>Contact With Us</h1>
+                <form className="flex max-w-md w-full flex-col gap-4 mb-8 bg-slate-200 p-10 rounded-lg">
                     <div>
                         <div className="mb-2 block">
                             <Label htmlFor="name" value="Your Name" />
                         </div>
-                        <TextInput id="name" type="text" placeholder="your name" required />
+                        <TextInput id="name" type="text" placeholder="your name" />
                     </div>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="email" value="Your Email" />
+                            <Label htmlFor="email" value="Your Email*" />
                         </div>
                         <TextInput id="email" type="email" placeholder='Your email' required />
                     </div>
                     <div>
                         <div className="mb-2 block">
-                            <Label htmlFor="comment" value="Your message" />
+                            <Label htmlFor="comment" value="Your message*" />
                         </div>
                         <Textarea id="comment" placeholder="Leave a comment..." required rows={4} />
                     </div>
-                    <Button type="submit">Submit</Button>
+                    <Button onClick={handleSubmit} type="submit">Submit</Button>
                 </form>
 
             </div>

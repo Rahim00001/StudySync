@@ -12,6 +12,7 @@ import AboutUs from "../Pages/AboutUs/AboutUs";
 import DashBoard from "../Layout/DashBoard";
 import AllEmployee from "../Pages/Dashboard.jsx/AllEmployee/AllEmployee";
 import UserDetiles from "../Pages/UserDetiles/UserDetiles";
+import Worksheet from "../Pages/Dashboard.jsx/Worksheet/Worksheet";
 
 
 export const router = createBrowserRouter([
@@ -44,7 +45,7 @@ export const router = createBrowserRouter([
                 path: '/detiles/:id',
                 element: <PrivateRoutes><UserDetiles></UserDetiles></PrivateRoutes>,
                 loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
-            }
+            },
         ]
     },
     {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
                 path: 'employee',
                 element: <AllEmployee></AllEmployee>
             },
+            {
+                path: 'worksheet',
+                element: <Worksheet></Worksheet>
+            }
 
 
         ]

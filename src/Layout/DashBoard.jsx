@@ -2,7 +2,8 @@ import { FaEnvelope, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 const DashBoard = () => {
-    const isAdmin = true;
+    const isHr = true;
+    const isEmployee = true;
     return (
         <div className="flex">
             {/* sidebar */}
@@ -18,10 +19,21 @@ const DashBoard = () => {
                     </li>
                     <hr />
                     {
-                        isAdmin ? <>
+                        isHr ? <>
                             <li className="flex items-center gap-2 mt-2">
                                 <FaUsers></FaUsers>
                                 <NavLink to='/dashboard/employee'>All Employee</NavLink>
+                            </li>
+                        </>
+                            : <>
+
+                            </>
+                    }
+                    {
+                        isEmployee ? <>
+                            <li className="flex items-center gap-2 mt-2">
+                                <FaUsers></FaUsers>
+                                <NavLink to='/dashboard/worksheet'>Worksheet</NavLink>
                             </li>
                         </>
                             : <>
