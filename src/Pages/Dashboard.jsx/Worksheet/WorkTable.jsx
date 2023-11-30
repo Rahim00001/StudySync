@@ -4,7 +4,6 @@ import { Table } from 'flowbite-react';
 const WorkTable = () => {
     const { user } = useContext(AuthContext);
     const [worksheet, setWorsheet] = useState([]);
-    console.log(worksheet);
     const url = `http://localhost:5000/worksheet?email=${user?.email}`;
     useEffect(() => {
         fetch(url)

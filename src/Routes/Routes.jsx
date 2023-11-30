@@ -15,7 +15,7 @@ import UserDetiles from "../Pages/UserDetiles/UserDetiles";
 import Worksheet from "../Pages/Dashboard.jsx/Worksheet/Worksheet";
 import Progress from "../Pages/Dashboard.jsx/Progress/Progress";
 import VerifiedEmployee from "../Pages/Dashboard.jsx/VerifiedEmployee/VerifiedEmployee";
-import AdminRoutes from "./AdminRoutes";
+// import AdminRoutes from "./AdminRoutes";
 
 
 export const router = createBrowserRouter([
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
             // Admin routes
             {
                 path: 'verified',
-                element: <AdminRoutes><VerifiedEmployee></VerifiedEmployee></AdminRoutes>
+                element: <VerifiedEmployee></VerifiedEmployee>
             },
             // Employee routes
             {

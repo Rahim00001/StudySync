@@ -8,7 +8,7 @@ const axiosSecure = axios.create({
 })
 const useAxiosSecure = () => {
     const navigate = useNavigate();
-    const { logOutUse } = useContext(AuthContext);
+    const { logOutUser } = useContext(AuthContext);
     axiosSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token')
         // console.log('request stopped by interceptors', token);
@@ -24,7 +24,7 @@ const useAxiosSecure = () => {
         const status = error.response.status;
         // console.log('status error in the interceptor', status);
         if (status === 401 || status === 403) {
-            await logOutUse();
+            await logOutUser();
             navigate('/login')
         }
         return Promise.reject(error);

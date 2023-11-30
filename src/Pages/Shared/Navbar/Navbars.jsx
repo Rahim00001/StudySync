@@ -67,7 +67,7 @@ const Navbars = () => {
                 </Navbar.Link>
 
                 <Navbar.Link>
-                    <NavLink className="text-white" to='/dashboard/employee'>Dashbord</NavLink>
+                    <NavLink className="text-white" to='/dashboard'>Dashbord</NavLink>
                 </Navbar.Link>
 
                 <Navbar.Link>

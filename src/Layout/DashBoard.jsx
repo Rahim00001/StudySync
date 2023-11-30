@@ -1,10 +1,12 @@
 import { FaEnvelope, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useEmployee from "../hooks/useEmployee";
+import useHr from "../hooks/useHr";
 
 const DashBoard = () => {
-    const isHr = true;
-    const isEmployee = true;
+    const [isHr] = useHr();
+    const [isEmployee] = useEmployee();
     const [isAdmin] = useAdmin();
     return (
         <div className="flex">
@@ -50,7 +52,7 @@ const DashBoard = () => {
                         isAdmin ? <>
                             <li className="flex items-center gap-2 mt-2">
                                 <FaUsers></FaUsers>
-                                <NavLink to='/dashboard/verified'>All Employee</NavLink>
+                                <NavLink to='/dashboard/verified'>Verifiyed Employees</NavLink>
                             </li>
                         </>
                             : <>
