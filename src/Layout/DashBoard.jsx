@@ -1,10 +1,11 @@
 import { FaEnvelope, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const DashBoard = () => {
     const isHr = true;
     const isEmployee = true;
-    const isAdmin = true;
+    const [isAdmin] = useAdmin();
     return (
         <div className="flex">
             {/* sidebar */}
