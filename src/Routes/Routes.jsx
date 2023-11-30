@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
             {
                 path: '/detiles/:id',
                 element: <PrivateRoutes><UserDetiles></UserDetiles></PrivateRoutes>,
-                loader: ({ params }) => fetch(`http://localhost:5000/users/${params.id}`)
+                loader: ({ params }) => fetch(`https://study-sync-server-ten.vercel.app/users/${params.id}`)
             },
         ]
     },

@@ -11,7 +11,6 @@ const Progress = () => {
             return res.data;
         }
     })
-    console.log(progress);
     return (
         <div>
             <h2 className="text-center text-4xl font-bold mb-5">Work Progress:{progress.length}</h2>

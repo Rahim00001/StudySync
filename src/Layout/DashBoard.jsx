@@ -3,6 +3,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
 import useEmployee from "../hooks/useEmployee";
 import useHr from "../hooks/useHr";
+import { FaChartBar, FaChartLine } from "react-icons/fa6";
 
 const DashBoard = () => {
     const [isHr] = useHr();
@@ -29,7 +30,7 @@ const DashBoard = () => {
                                 <NavLink to='/dashboard/employee'>All Employee</NavLink>
                             </li>
                             <li className="flex items-center gap-2 mt-2">
-                                <FaUsers></FaUsers>
+                                <FaChartLine></FaChartLine>
                                 <NavLink to='/dashboard/progress'>Progress</NavLink>
                             </li>
                         </>
@@ -40,7 +41,7 @@ const DashBoard = () => {
                     {
                         isEmployee ? <>
                             <li className="flex items-center gap-2 mt-2">
-                                <FaUsers></FaUsers>
+                                <FaChartBar></FaChartBar>
                                 <NavLink to='/dashboard/worksheet'>Worksheet</NavLink>
                             </li>
                         </>

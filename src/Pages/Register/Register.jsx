@@ -71,42 +71,6 @@ const Register = () => {
                 }
                 console.log(res)
             })
-
-
-        // createUser(data.email, data.password)
-        //     .then(result => {
-        //         const loggedUser = result.user;
-        //         console.log(loggedUser);
-        //         updateUserProfile(data.name, data.photoURL)
-        //             .then(() => {
-        //                 const userInfo = {
-        //                     name: data.name,
-        //                     email: data.email,
-        //                     role: data.role,
-        //                     salary: data.salary,
-        //                     account: data.account,
-        //                     verified: false,
-        //                     photo: data.photo,
-        //                     designation: data.designation
-        //                 }
-        //                 axiosPublic.post('/users', userInfo)
-        //                     .then(res => {
-        //                         if (res.data.insertedId) {
-        //                             console.log('user added to database');
-        //                             reset();
-        //                             Swal.fire({
-        //                                 position: "top-end",
-        //                                 icon: "success",
-        //                                 title: "Registration SuccessFully",
-        //                                 showConfirmButton: false,
-        //                                 timer: 1500
-        //                             });
-        //                             navigate('/')
-        //                         }
-        //                     })
-        //             })
-        //             .catch(error => console.log(error))
-        //     })
     }
 
     return (
@@ -168,7 +132,6 @@ const Register = () => {
                             <Label htmlFor="photo" value="Your Photo" />
                         </div>
                         <FileInput id="photo" {...register("photo", { required: true })} name='photo' />
-                        {/* <TextInput id="photo" type="file" {...register("photo", { required: true })} name='photo' placeholder="Photo URL" shadow /> */}
                         {errors.photo && <span className="text-red-600">Photo URL is required</span>}
                     </div>
                     <div>

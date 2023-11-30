@@ -4,7 +4,7 @@ import { Table } from 'flowbite-react';
 const WorkTable = () => {
     const { user } = useContext(AuthContext);
     const [worksheet, setWorsheet] = useState([]);
-    const url = `http://localhost:5000/worksheet?email=${user?.email}`;
+    const url = `https://study-sync-server-ten.vercel.app/worksheet?email=${user?.email}`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

@@ -15,8 +15,6 @@ const AllEmployee = () => {
             return res.data;
         }
     })
-    console.log(users);
-
     const handleMakeVerified = user => {
         Swal.fire({
             title: "Are you sure?",
@@ -70,8 +68,7 @@ const AllEmployee = () => {
     return (
         <div>
             <div className="flex justify-evenly my-4">
-                <h2 className="text-4xl">All Employee</h2>
-                <h2 className="text-4xl">total Employee: {users.length}</h2>
+                <h2 className="text-5xl">All Employee</h2>
             </div>
             <div className="overflow-x-auto">
                 <Table>

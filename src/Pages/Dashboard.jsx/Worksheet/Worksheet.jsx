@@ -27,7 +27,7 @@ const Worksheet = () => {
             date: data.date
         }
         console.log(workInfo);
-        fetch('http://localhost:5000/worksheet', {
+        fetch('https://study-sync-server-ten.vercel.app/worksheet', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
