@@ -13,6 +13,7 @@ import DashBoard from "../Layout/DashBoard";
 import AllEmployee from "../Pages/Dashboard.jsx/AllEmployee/AllEmployee";
 import UserDetiles from "../Pages/UserDetiles/UserDetiles";
 import Worksheet from "../Pages/Dashboard.jsx/Worksheet/Worksheet";
+import Progress from "../Pages/Dashboard.jsx/Progress/Progress";
 
 
 export const router = createBrowserRouter([
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
             {
                 path: 'worksheet',
                 element: <Worksheet></Worksheet>
+            },
+            {
+                path: 'progress',
+                element: <Progress></Progress>
             }
 
 

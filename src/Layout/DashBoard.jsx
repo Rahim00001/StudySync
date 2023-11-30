@@ -24,6 +24,10 @@ const DashBoard = () => {
                                 <FaUsers></FaUsers>
                                 <NavLink to='/dashboard/employee'>All Employee</NavLink>
                             </li>
+                            <li className="flex items-center gap-2 mt-2">
+                                <FaUsers></FaUsers>
+                                <NavLink to='/dashboard/progress'>Progress</NavLink>
+                            </li>
                         </>
                             : <>
 
