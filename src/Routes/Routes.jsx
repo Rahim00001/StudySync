@@ -14,6 +14,7 @@ import AllEmployee from "../Pages/Dashboard.jsx/AllEmployee/AllEmployee";
 import UserDetiles from "../Pages/UserDetiles/UserDetiles";
 import Worksheet from "../Pages/Dashboard.jsx/Worksheet/Worksheet";
 import Progress from "../Pages/Dashboard.jsx/Progress/Progress";
+import VerifiedEmployee from "../Pages/Dashboard.jsx/VerifiedEmployee/VerifiedEmployee";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
             {
                 path: 'employee',
                 element: <AllEmployee></AllEmployee>
+            },
+            {
+                path: 'verified',
+                element: <VerifiedEmployee></VerifiedEmployee>
             },
             {
                 path: 'worksheet',

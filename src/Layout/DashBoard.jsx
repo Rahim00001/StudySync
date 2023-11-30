@@ -4,6 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 const DashBoard = () => {
     const isHr = true;
     const isEmployee = true;
+    const isAdmin = true;
     return (
         <div className="flex">
             {/* sidebar */}
@@ -38,6 +39,17 @@ const DashBoard = () => {
                             <li className="flex items-center gap-2 mt-2">
                                 <FaUsers></FaUsers>
                                 <NavLink to='/dashboard/worksheet'>Worksheet</NavLink>
+                            </li>
+                        </>
+                            : <>
+
+                            </>
+                    }
+                    {
+                        isAdmin ? <>
+                            <li className="flex items-center gap-2 mt-2">
+                                <FaUsers></FaUsers>
+                                <NavLink to='/dashboard/verified'>All Employee</NavLink>
                             </li>
                         </>
                             : <>

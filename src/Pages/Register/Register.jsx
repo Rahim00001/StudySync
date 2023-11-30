@@ -138,6 +138,7 @@ const Register = () => {
                         <Select id="role" name="role" {...register("role", { required: true })} >
                             <option>Employee</option>
                             <option>HR</option>
+                            {/* <option>Admin</option> */}
                         </Select>
                         {errors.role && <span className="text-red-600">Role is required</span>}
                     </div>
