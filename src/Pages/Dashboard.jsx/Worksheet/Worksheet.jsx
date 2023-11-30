@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 // import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import WorkTable from "./WorkTable";
 
 const Worksheet = () => {
     const { user } = useContext(AuthContext);
@@ -98,6 +99,7 @@ const Worksheet = () => {
                 </div>
                 <Button type="submit">Submit</Button>
             </form>
+            <WorkTable></WorkTable>
         </div>
     );
 };
