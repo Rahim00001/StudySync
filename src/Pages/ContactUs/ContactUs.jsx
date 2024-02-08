@@ -1,54 +1,92 @@
-import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+// import { Button, Label, TextInput, Textarea } from 'flowbite-react';
+import { LuPhoneCall } from "react-icons/lu";
+import { MdOutlineMarkEmailUnread } from "react-icons/md";
+import { IoLocation } from "react-icons/io5";
 import { Helmet } from 'react-helmet-async';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
+import ContactForm from './ContactForm/ContactForm';
+import facebook from "../../../src/assets/images/facebook.png"
+import insta from "../../../src/assets/images/instagram.png"
+import linkedin from "../../../src/assets/images/linkedin.png"
+import twitter from "../../../src/assets/images/twitter.jpg"
+import "./contactUs.css"
 const ContactUs = () => {
-    const handleSubmit = () => {
-        Swal.fire({
-            title: "Message Sent?",
-            text: "Thanks for masseging us",
-            icon: "success"
-        });
-    }
     return (
         <div>
             <Helmet>
                 <title>StudySync | Contact Us</title>
             </Helmet>
-            <p className='text-center text-6xl font-bold mb-5 pt-16'>Our Location</p>
-            <div>
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.3309627476438!2d90.38113137533547!3d23.735574478680462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8c8e1ea9fd1%3A0xa6e274882fdbce53!2z4Kai4Ka-4KaV4Ka-IOCmleCmsuCnh-CmnA!5e0!3m2!1sbn!2sbd!4v1701293988023!5m2!1sbn!2sbd"
-                    width="80%"
-                    height="450"
-                    className='mx-auto rounded-lg border-8 border-indigo-400'
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div className="flex flex-col w-full items-center justify-center min-h-[500px] px-3">
-                <h1 className='mt-24 mb-5 text-4xl font-bold '>Contact With Us</h1>
-                <form className="flex max-w-md w-full flex-col gap-4 mb-8 bg-slate-200 p-10 rounded-lg">
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="name" value="Your Name" />
-                        </div>
-                        <TextInput id="name" type="text" placeholder="your name" />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="email" value="Your Email*" />
-                        </div>
-                        <TextInput id="email" type="email" placeholder='Your email' required />
-                    </div>
-                    <div>
-                        <div className="mb-2 block">
-                            <Label htmlFor="comment" value="Your message*" />
-                        </div>
-                        <Textarea id="comment" placeholder="Leave a comment..." required rows={4} />
-                    </div>
-                    <Button onClick={handleSubmit} type="submit">Submit</Button>
-                </form>
+            <div className="contactPage">
+                <h1 className="text-7xl text-center font-bold text-white pt-10">Get In Touch</h1>
+                <div className="flex flex-col md:flex-row justify-center items-center gap-3 p-10">
+                    {/* left column */}
+                    <ContactForm></ContactForm>
 
+                    {/* right column */}
+                    <div className="max-w-96 flex flex-col gap-3">
+
+                        {/* contact Info */}
+                        <div className="contact-info text-white w-100% p-6 rounded-xl" data-aos="fade-up-left" data-aos-duration="1000">
+                            <p className="text-2xl font-bold mb-3">Contact Info</p>
+                            <div className="flex items-center mb-2">
+                                <div className="bg-teal-400 p-2 rounded-full mr-2">
+                                    <IoLocation className="text-xl" />
+                                </div>
+                                <p className="">Level-4, 34, Awal Centre, Banani, Dhaka, Bangladesh</p>
+                            </div>
+                            <div className="flex items-center mb-2 text-white max-w-96">
+                                <div className="bg-teal-400 p-2 rounded-full mr-2">
+                                    <MdOutlineMarkEmailUnread className="text-xl"></MdOutlineMarkEmailUnread>
+                                </div>
+                                <p className="">easyrecruitofficial@gmail.com</p>
+                            </div>
+                            <div className="flex items-center mb-5 text-white max-w-96">
+                                <div className="bg-teal-400 p-2 rounded-full mr-2">
+                                    <LuPhoneCall className="text-xl"></LuPhoneCall>
+                                </div>
+                                <div>
+                                    <p className="">+202 54894314</p>
+                                    <p className="">+880 24389027</p>
+                                </div>
+                            </div>
+                            <div className="flex justify-start items-center gap-3 ">
+                                <div>
+                                    <a href="https://facebook.com">
+                                        <img className="rounded-full transition-transform duration-500 transform origin-center hover:translate-y-[-.3rem]" src={facebook} alt="facebook" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://instagram.com">
+                                        <img className="rounded-full transition-transform duration-500 transform origin-center hover:translate-y-[-.3rem]" src={insta} alt="instagram" />
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://twitter.com">
+                                        <img className="rounded-full h-10 transition-transform duration-500 transform origin-center hover:translate-y-[-.3rem]" src={twitter} alt="twitter" />
+                                    </a>
+                                </div>
+                                <div className="">
+                                    <a href="https://linkedin.com">
+                                        <img className="transition-transform duration-500 transform origin-center hover:translate-y-[-.3rem]" src={linkedin} alt="linkedin" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* map */}
+                        <div data-aos="fade-up-left" data-aos-duration="1000">
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d50774.468702065715!2d-122.04364444999999!3d37.30924995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb4571bd377ab%3A0x394d3fe1a3e178b4!2sCupertino%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1707295497047!5m2!1sen!2sbd"
+                                width="100%"
+                                height="390"
+                                className='map rounded'
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </div>
     );
