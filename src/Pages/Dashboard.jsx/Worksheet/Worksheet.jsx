@@ -2,7 +2,6 @@ import { Button, Label, Select, TextInput } from "flowbite-react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
-// import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import WorkTable from "./WorkTable";
 

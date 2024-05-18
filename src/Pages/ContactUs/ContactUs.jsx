@@ -1,9 +1,7 @@
-// import { Button, Label, TextInput, Textarea } from 'flowbite-react';
 import { LuPhoneCall } from "react-icons/lu";
 import { MdOutlineMarkEmailUnread } from "react-icons/md";
 import { IoLocation } from "react-icons/io5";
 import { Helmet } from 'react-helmet-async';
-// import Swal from 'sweetalert2';
 import ContactForm from './ContactForm/ContactForm';
 import facebook from "../../../src/assets/images/facebook.png"
 import insta from "../../../src/assets/images/instagram.png"
@@ -84,7 +82,6 @@ const ContactUs = () => {
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"></iframe>
                         </div>
-
                     </div>
                 </div>
             </div>
